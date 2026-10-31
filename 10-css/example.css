@@ -1,0 +1,119 @@
+/* ===========================================================================
+   This file is the lesson. Open the page and read this at the same time:
+       npm run open 10
+   Change a number here, save, and refresh the browser. That loop — edit,
+   save, refresh — is how you will learn CSS faster than by reading.
+   =========================================================================== */
+
+/* --- 1. SELECTORS ---------------------------------------------------------
+   A rule is a selector, then declarations in braces. Each declaration is
+   property: value;
+
+   There are three selectors you need:
+       body        an ELEMENT selector   — every <body>
+       .card       a CLASS selector      — every element with class="card"
+       #items      an ID selector        — the one element with id="items"
+
+   Use classes for nearly everything. Ids are for the one-off. */
+
+/* An element selector. This one applies to the whole page. */
+body {
+  /* A font stack: the browser uses the first one it has. */
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  color: #1a1a1a;
+  background-color: #fdfdfb;
+  margin: 0;
+}
+
+/* --- 2. THE BOX MODEL -----------------------------------------------------
+   Every element is a box, made of four layers, from the inside out:
+
+       content   the text or image itself
+       padding   space INSIDE the box, between content and border
+       border    the line around it
+       margin    space OUTSIDE the box, pushing other boxes away
+
+   Padding is inside and has the background colour. Margin is outside and is
+   always transparent. Confusing the two is the most common CSS mistake there
+   is. In the browser's dev tools, click an element and look at the coloured
+   box diagram — it shows you these four layers on the real element. */
+
+.page {
+  max-width: 48rem; /* never wider than this */
+  margin: 0 auto; /* 0 top and bottom, auto left and right = centred */
+  padding: 1rem; /* breathing room inside */
+}
+
+.card {
+  padding: 1rem; /* space inside the card */
+  margin: 0; /* space outside it — the gap below handles this */
+  border: 1px solid #ddd;
+  border-radius: 8px; /* rounded corners */
+  background-color: #ffffff;
+}
+
+/* --- 3. FLEXBOX -----------------------------------------------------------
+   By default, boxes stack top to bottom. Flexbox lays a box's CHILDREN out in
+   a row instead, and shares the space between them.
+
+   You set it on the PARENT. The children need no rules of their own. */
+
+.card-list {
+  display: flex; /* lay the children out in a row */
+  gap: 1rem; /* space between them — better than margins */
+  flex-wrap: wrap; /* let them drop onto a new line on a narrow screen */
+}
+
+.card {
+  /* Let each card grow to share the leftover space, but never get narrower
+     than 12rem. This is what makes the row look even. */
+  flex: 1 1 12rem;
+}
+
+/* The same three properties again, doing something different: spreading the
+   title and the nav to opposite ends of the header, and lining them up. */
+header {
+  display: flex;
+  justify-content: space-between; /* first item left, last item right */
+  align-items: center; /* line them up vertically */
+  border-bottom: 3px solid #0b6e4f;
+  padding-bottom: 0.5rem;
+}
+
+/* --- 4. MORE SELECTORS ----------------------------------------------------
+   Put two selectors side by side and you get a DESCENDANT selector: "an <a>
+   anywhere inside a <nav>". Not every <a> on the page — only those. */
+
+nav a {
+  margin-left: 1rem;
+  color: #0b6e4f;
+  text-decoration: none; /* removes the underline */
+}
+
+/* A class selector. Reused on all three prices. */
+.price {
+  color: #0b6e4f;
+  font-weight: bold;
+  font-size: 1.125rem;
+}
+
+/* --- 5. WHEN TWO RULES DISAGREE -------------------------------------------
+   Both of these match the <h3> in a card. The more SPECIFIC one wins —
+   a class beats a plain element, whatever order they are written in. */
+h3 {
+  color: #888; /* loses */
+}
+
+.card h3 {
+  color: #1a1a1a; /* wins: more specific */
+  margin-top: 0;
+}
+
+footer {
+  margin-top: 2rem;
+  border-top: 1px solid #ddd;
+  padding-top: 0.5rem;
+  color: #666;
+  font-size: 0.875rem;
+}

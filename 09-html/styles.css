@@ -1,0 +1,34 @@
+/* A stylesheet, written for you. Module 10 is where you write your own.
+   It is here so that linking it into a page does something you can see. */
+
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 40rem;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  line-height: 1.6;
+  color: #1a1a1a;
+  background: #fdfdfb;
+}
+
+header {
+  border-bottom: 3px solid #0b6e4f;
+  padding-bottom: 0.5rem;
+}
+
+h1 {
+  color: #0b6e4f;
+}
+
+.price {
+  font-weight: bold;
+  color: #0b6e4f;
+}
+
+footer {
+  margin-top: 2rem;
+  border-top: 1px solid #ddd;
+  padding-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #666;
+}

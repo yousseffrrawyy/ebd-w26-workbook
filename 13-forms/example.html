@@ -1,0 +1,32 @@
+<!-- The page example.js drives. Open it with:  npm run open 13 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms — example</title>
+    <link rel="stylesheet" href="page.css" />
+  </head>
+  <body>
+    <h1>Campus Store</h1>
+    <p>Type a product and press Add. Nothing leaves your browser.</p>
+
+    <form id="product-form">
+      <label>
+        Name
+        <input id="name" name="name" type="text" placeholder="Notebook" />
+      </label>
+      <label>
+        Price (EGP)
+        <input id="price" name="price" type="number" placeholder="45" />
+      </label>
+      <button type="submit">Add</button>
+    </form>
+
+    <p class="error" id="error"></p>
+
+    <ul class="card-list" id="list"></ul>
+
+    <script src="example.js"></script>
+  </body>
+</html>

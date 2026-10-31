@@ -1,0 +1,20 @@
+{
+  "name": "ebd-w26-workbook",
+  "version": "1.0.0",
+  "private": true,
+  "description": "EBD (BINF 503) Winter 2026 \u2014 JavaScript and web refresher workbook",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node scripts/test.js",
+    "test:watch": "node scripts/test.js --watch",
+    "modules": "node scripts/modules.js",
+    "open": "node scripts/open.js"
+  },
+  "devDependencies": {
+    "jsdom": "^30.1.1",
+    "vitest": "^3.2.4"
+  }
+}

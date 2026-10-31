@@ -1,0 +1,35 @@
+<!--
+  13-forms — this page is written for you. Do NOT edit it.
+  Your work goes in exercise.js.
+  See it with:  npm run open 13 exercise
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Campus Store — forms</title>
+    <link rel="stylesheet" href="page.css" />
+  </head>
+  <body>
+    <h1>My Campus Store</h1>
+
+    <form id="product-form">
+      <label>
+        Name
+        <input id="name" name="name" type="text" placeholder="Notebook" />
+      </label>
+      <label>
+        Price (EGP)
+        <input id="price" name="price" type="number" placeholder="45" />
+      </label>
+      <button type="submit">Add</button>
+    </form>
+
+    <p class="error" id="error"></p>
+
+    <ul class="card-list" id="list"></ul>
+
+    <script type="module" src="exercise.js"></script>
+  </body>
+</html>

@@ -1,0 +1,104 @@
+<!--
+  This file is the lesson. Open it with:   npm run open 09
+
+  Read it in two places at once: the page in your browser, and this source in
+  VS Code. Every comment below explains the line under it.
+-->
+
+<!-- Tells the browser this is modern HTML. Always the first line. -->
+<!DOCTYPE html>
+
+<!-- Everything lives inside <html>. lang tells screen readers what language
+     to expect. -->
+<html lang="en">
+  <!--
+    HEAD: information ABOUT the page. None of it is drawn on screen.
+  -->
+  <head>
+    <!-- Which alphabet the file uses. Without it, Arabic and even curly
+         quotes can come out as nonsense. -->
+    <meta charset="UTF-8" />
+
+    <!-- Makes the page behave sensibly on a phone. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- The text in the browser tab. -->
+    <title>Campus Store — example</title>
+
+    <!-- LINKING A STYLESHEET. rel says what kind of link it is, href says
+         where the file is. "styles.css" with no folder means "next to this
+         file" — the same idea as ./ in module 06. -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <!--
+    BODY: everything you can actually see.
+  -->
+  <body>
+    <!-- SEMANTIC TAGS say what a part of the page IS, not what it looks like.
+         <header>, <main>, <footer>, <nav>, <section> are all just boxes, the
+         same as <div> — but a screen reader, a search engine and the next
+         person to read your code all understand them. Prefer them to <div>
+         when one fits. -->
+    <header>
+      <!-- One <h1> per page: the page's title. h2 to h6 are subheadings,
+           in order. Do not skip levels to get a smaller font. -->
+      <h1>Campus Store</h1>
+      <p>An example page for module 09.</p>
+    </header>
+
+    <main>
+      <!-- A section groups related content. -->
+      <section>
+        <h2>What is in this page</h2>
+
+        <!-- A paragraph. -->
+        <p>
+          An element is an opening tag, some content, and a closing tag:
+          <code>&lt;p&gt;text&lt;/p&gt;</code>. Elements NEST inside each
+          other, and they must close in the order they opened.
+        </p>
+
+        <!-- ATTRIBUTES go in the opening tag, as name="value".
+             class is the one you will use most — module 10 uses it to style
+             things, and module 11 uses it to find them. -->
+        <p>A notebook costs <span class="price">45 EGP</span>.</p>
+
+        <!-- An unordered list. Every <li> is one item. -->
+        <ul>
+          <li>Notebook</li>
+          <li>Backpack</li>
+          <li>Pen</li>
+        </ul>
+
+        <!-- A link. href is where it goes. -->
+        <p>
+          Everything here is documented on
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">MDN</a>.
+        </p>
+
+        <!-- An image. src is the file, alt is what it means — alt is read
+             aloud to blind users and shown if the image fails to load.
+             It is not optional. This one points at a file that does not
+             exist, so you can see what a broken image looks like. -->
+        <img src="missing-on-purpose.png" alt="A deliberately broken image" />
+
+        <!-- id names ONE element. There can only be one of each id on a
+             page. The script below finds this paragraph by its id. -->
+        <p id="script-check">
+          The script has not run. If you can still read this, app.js did not
+          load.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>BINF 503 — Electronic Business Development</p>
+    </footer>
+
+    <!-- LINKING A SCRIPT, at the very end of the body, on purpose. The
+         browser reads this file top to bottom. If the script ran before the
+         paragraph above existed, it could not find it. Put scripts last. -->
+    <script src="app.js"></script>
+  </body>
+</html>
