@@ -24,9 +24,9 @@
  * @returns {{ name: string, price: number }}
  */
 export function readForm() {
-  // TODO: read .value off each input. Trim the name, and convert the price
-  // with Number().
-  throw new Error("readForm is not written yet");
+  const name = document.querySelector("#name").value.trim();
+  const price = Number(document.querySelector("#price").value);
+  return { name, price };
 }
 
 /**
@@ -35,8 +35,8 @@ export function readForm() {
  * @returns {void}
  */
 export function clearForm() {
-  // TODO: set each input's .value to an empty string.
-  throw new Error("clearForm is not written yet");
+  document.querySelector("#name").value = "";
+  document.querySelector("#price").value = "";
 }
 
 /**
@@ -52,9 +52,26 @@ export function clearForm() {
  * @returns {void}
  */
 export function renderList(items) {
-  // TODO: empty #list first, then build one card per item — the same card
-  // shape as module 12.
-  throw new Error("renderList is not written yet");
+  const list = document.querySelector("#list");
+
+  for (const card of list.querySelectorAll(".card")) {
+    card.remove();
+  }
+
+  for (const item of items) {
+    const card = document.createElement("li");
+    card.classList.add("card");
+
+    const heading = document.createElement("h3");
+    heading.textContent = item.name;
+
+    const priceText = document.createElement("p");
+    priceText.classList.add("price");
+    priceText.textContent = `${item.price} EGP`;
+
+    card.append(heading, priceText);
+    list.append(card);
+  }
 }
 
 /**
@@ -86,4 +103,43 @@ export function renderList(items) {
  * Remember `export`.
  */
 
-// TODO: write wireForm here.
+// The data lives here. The page is only a picture of this array.
+const items = [];
+
+export function wireForm() {
+  const form = document.querySelector("#product-form");
+  const error = document.querySelector("#error");
+
+  form.addEventListener("submit", (event) => {
+    // 1. Stop the browser reloading the page.
+    event.preventDefault();
+
+    // 2. Read the form.
+    const { name, price } = readForm();
+
+    // 3. No name: say so and stop.
+    if (!name) {
+      error.textContent = "Give the product a name.";
+      return;
+    }
+
+    // 4. Empty, not a number, or not above 0: say so and stop.
+    if (!(price > 0)) {
+      error.textContent = "Give the product a price.";
+      return;
+    }
+
+    // 5. All good: clear the error, store it, redraw, empty the boxes.
+    error.textContent = "";
+    items.push({ name, price });
+    renderList(items);
+    clearForm();
+  });
+}
+
+// In the browser, wire the form as soon as the page loads. The tests have no
+// browser around them (Node has `process`, a browser does not), and they call
+// wireForm() themselves — wiring twice would add every product twice.
+if (typeof process === "undefined") {
+  wireForm();
+}
