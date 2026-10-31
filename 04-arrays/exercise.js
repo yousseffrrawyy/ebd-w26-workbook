@@ -17,8 +17,7 @@
  * @returns {string[]} one name per product, in the same order
  */
 export function productNames(products) {
-  // TODO: use map.
-  throw new Error("productNames is not written yet");
+  return products.map((product) => product.name);
 }
 
 /**
@@ -30,8 +29,7 @@ export function productNames(products) {
  * @returns {Array<object>} the whole product objects, not just their names
  */
 export function cheaperThan(products, maxPrice) {
-  // TODO: use filter.
-  throw new Error("cheaperThan is not written yet");
+  return products.filter((product) => product.price < maxPrice);
 }
 
 /**
@@ -42,8 +40,7 @@ export function cheaperThan(products, maxPrice) {
  * @returns {object|undefined} the matching product, or undefined if there is none
  */
 export function findById(products, id) {
-  // TODO: use find. Do not return an array.
-  throw new Error("findById is not written yet");
+  return products.find((product) => product.id === id);
 }
 
 /**
@@ -53,8 +50,7 @@ export function findById(products, id) {
  * @returns {number} the total in EGP, and 0 for an empty list
  */
 export function totalPrice(products) {
-  // TODO: use reduce. Remember the starting value.
-  throw new Error("totalPrice is not written yet");
+  return products.reduce((sum, product) => sum + product.price, 0);
 }
 
 /**
@@ -76,4 +72,6 @@ export function totalPrice(products) {
  * Filter, then map — chained, on one line. Remember `export`.
  */
 
-// TODO: write inStockNames here.
+export function inStockNames(products) {
+  return products.filter((product) => product.inStock).map((product) => product.name);
+}
