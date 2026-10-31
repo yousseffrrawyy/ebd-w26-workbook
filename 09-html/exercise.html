@@ -15,37 +15,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- TODO: give the page the title:  My Campus Store -->
-    <title></title>
-
-    <!-- TODO: link the stylesheet. The file is styles.css, next to this one. -->
+    <title>My Campus Store</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
-    <!-- TODO: wrap this heading in a <header> element. -->
-    <h1>My Campus Store</h1>
+    <header>
+      <h1>My Campus Store</h1>
+    </header>
 
-    <!-- TODO: everything from here to the footer belongs inside a <main>. -->
+    <main>
+      <h2>Items</h2>
 
-    <!-- TODO: add an <h2> that says:  Items -->
+      <ul>
+        <li>Notebook</li>
+        <li>Backpack</li>
+        <li>Pen</li>
+      </ul>
 
-    <!-- TODO: add a <ul> with exactly three <li> items, one per product.
-         The text of each does not matter — pick any three. -->
+      <p>A pen costs <span class="price">15 EGP</span>.</p>
 
-    <!-- TODO: add a paragraph containing a <span class="price"> with a price
-         in it, for example:  A pen costs <span class="price">15 EGP</span>. -->
+      <p>Visit <a href="https://www.giu-uni.de">GIU</a> for more.</p>
 
-    <!-- TODO: add a link to https://www.giu-uni.de with the text:  GIU -->
+      <img src="store-front.jpg" alt="The front of the campus store" />
 
-    <!-- TODO: add an <img>. It needs a src (any filename) and an alt
-         describing the picture. -->
+      <p id="script-check">The script has not run.</p>
+    </main>
 
-    <p id="script-check">The script has not run.</p>
+    <footer>
+      <p>BINF 503 — Electronic Business Development</p>
+    </footer>
 
-    <!-- TODO: add a <footer> with a paragraph inside it. Any text. -->
-
-    <!-- TODO: link the script. The file is app.js, next to this one, and the
-         tag belongs at the very end of the body. -->
+    <script src="app.js"></script>
   </body>
 </html>
