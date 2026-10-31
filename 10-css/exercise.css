@@ -14,29 +14,46 @@
  * Keep the page open in the browser and refresh after each change.
  */
 
-/* TODO: a rule for `body` that sets
- *       font-family, color, and background-color. */
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: #1f2933;
+  background-color: #f5f7fa;
+  line-height: 1.6;
+}
 
-/* TODO: a rule for `.page` that sets
- *       max-width, and margin (use `0 auto` to centre it). */
+.page {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
 
-/* TODO: a rule for `header` that sets
- *       display: flex;
- *       justify-content: space-between;
- *       align-items: center;
- *       and one more property of your choosing. */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid #1d4ed8;
+}
 
-/* TODO: a rule for `nav a` — a descendant selector, so it only affects links
- *       inside the nav — that sets
- *       color, and text-decoration. */
+nav a {
+  color: #1d4ed8;
+  text-decoration: none;
+  margin-left: 1rem;
+}
 
-/* TODO: a rule for `.card-list` that sets
- *       display: flex;
- *       gap (any size);
- *       flex-wrap: wrap; */
+.card-list {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
 
-/* TODO: a rule for `.card` that sets
- *       padding, border-radius, and background-color. */
+.card {
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  background-color: #ffffff;
+  flex: 1 1 12rem;
+}
 
-/* TODO: a rule for `.price` that sets
- *       color, and font-weight. */
+.price {
+  color: #b45309;
+  font-weight: bold;
+}
