@@ -18,8 +18,7 @@ import shopName, { products, formatEGP } from "./catalog.js";
  * @returns {number}
  */
 export function productCount() {
-  // TODO: the imported array is just an array.
-  throw new Error("productCount is not written yet");
+  return products.length;
 }
 
 /**
@@ -32,8 +31,7 @@ export function productCount() {
  * @returns {string}
  */
 export function priceTag(product) {
-  // TODO: pass the product's price to the imported function.
-  throw new Error("priceTag is not written yet");
+  return formatEGP(product.price);
 }
 
 /**
@@ -45,8 +43,7 @@ export function priceTag(product) {
  * @returns {string}
  */
 export function shopHeading() {
-  // TODO: a template literal, with the imported name in it.
-  throw new Error("shopHeading is not written yet");
+  return `${shopName} catalog`;
 }
 
 /**
