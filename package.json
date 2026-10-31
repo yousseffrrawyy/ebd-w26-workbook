@@ -2,7 +2,7 @@
   "name": "ebd-w26-workbook",
   "version": "1.0.0",
   "private": true,
-  "description": "EBD (BINF 503) Winter 2026 \u2014 JavaScript and web refresher workbook",
+  "description": "EBD (BINF 503) Winter 2026 — JavaScript and web refresher workbook",
   "type": "module",
   "engines": {
     "node": ">=20"
@@ -11,10 +11,15 @@
     "test": "node scripts/test.js",
     "test:watch": "node scripts/test.js --watch",
     "modules": "node scripts/modules.js",
-    "open": "node scripts/open.js"
+    "open": "node scripts/open.js",
+    "example": "node 07-npm/example.js"
   },
   "devDependencies": {
     "jsdom": "^30.1.1",
     "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "chalk": "^6.0.1",
+    "dayjs": "^1.11.23"
   }
 }
