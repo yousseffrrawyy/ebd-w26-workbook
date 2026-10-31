@@ -1,0 +1,37 @@
+/* Checkpoint B — your styling. Build it to checkpoint-b/spec.md. */
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background-color: #f5f7fa;
+  color: #1f2933;
+  max-width: 40rem;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+h1 {
+  color: #1d4ed8;
+}
+
+button {
+  font: inherit;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #1d4ed8;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+#list {
+  list-style: none;
+  padding: 0;
+}
+
+.product {
+  padding: 0.75rem 1rem;
+  color: #1f2933;
+  background-color: #ffffff;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+}
