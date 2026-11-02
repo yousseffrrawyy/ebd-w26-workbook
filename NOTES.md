@@ -124,3 +124,96 @@ orders (08), filter by city and status (04), total `price * quantity` with
 const slim = orders.map(({ student, item }) => ({ student, item }));
 return JSON.stringify(slim);
 ```
+
+## Part 2 — The web
+
+### 09 — HTML
+
+A page is nested elements. Semantic tags (`header`, `main`, `footer`) say what
+each part is for. The stylesheet is linked in the `head`; the script goes at
+the end of the `body`, so the content exists before the script runs. Every
+`img` needs an `alt` that describes it.
+
+```html
+<link rel="stylesheet" href="styles.css" />
+...
+<script src="app.js"></script>
+```
+
+### 10 — CSS
+
+A rule is a selector plus declarations. A descendant selector (`nav a`) targets
+only elements inside another one. The box model is content, padding, border,
+margin. Flexbox lays children out in a row: `justify-content` spaces them along
+the row and `align-items` lines them up across it. Text needs enough contrast
+with its background to be readable.
+
+```css
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+```
+
+### 11 — Reading the DOM
+
+`querySelector` returns the first match (or `null`), `querySelectorAll` returns
+a NodeList of every match. A NodeList has no `.map`, so turn it into an array
+first. `textContent` reads the text; `classList.contains` checks a class.
+
+```js
+return Array.from(document.querySelectorAll(".card h3")).map(
+  (heading) => heading.textContent
+);
+```
+
+### 12 — Changing the DOM
+
+`createElement` makes an element that is not on the page yet; it only appears
+once it is `append`ed to something that is. `.remove()` takes it away and
+`classList.add` changes how it looks. `addEventListener` hands the browser a
+function to call later, when the event happens.
+
+```js
+document.querySelector("#add").addEventListener("click", () => {
+  addProduct("Notebook", 45);
+});
+```
+
+### 13 — Forms
+
+Submitting a form reloads the page unless `event.preventDefault()` is called
+first. Input values are always strings, so prices need `Number()`. Validate,
+show an error and `return` early if something is wrong. The data lives in an
+array; the page is only a picture of it, redrawn from that array each time.
+
+```js
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const { name, price } = readForm();
+  if (!name) {
+    error.textContent = "Give the product a name.";
+    return;
+  }
+  ...
+  items.push({ name, price });
+  renderList(items);
+});
+```
+
+### Checkpoint B
+
+Three files built from a spec: the structure (09), the styling with readable
+colours (10), and the behaviour (11–13). Because `page.js` uses `import`, the
+script tag needs `type="module"`. The list is drawn from the data, and the
+button redraws it with only the out-of-stock items (04's `filter`).
+
+```js
+export function start() {
+  renderItems(items);
+  document.querySelector("#filter-button").addEventListener("click", () => {
+    renderItems(matching());
+  });
+}
+```
