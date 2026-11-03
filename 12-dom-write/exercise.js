@@ -121,5 +121,9 @@ export function wireButtons() {
   });
 }
 
-// Wire the buttons once when the page loads, so they work in the browser.
-wireButtons();
+// In the browser, wire the buttons as soon as the page loads. The tests run in
+// Node (which has `process`; a browser does not) and call wireButtons()
+// themselves, so wiring here too would attach every listener twice.
+if (typeof process === "undefined") {
+  wireButtons();
+}
